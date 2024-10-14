@@ -1,0 +1,59 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://HUD.gd" type="Script" id=1]
+[ext_resource path="res://Material rescue/HUD/PressStart2P.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://Material rescue/HUD/hud1.png" type="Texture" id=3]
+[ext_resource path="res://Material rescue/HUD/hud0.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=1]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 19
+font_data = ExtResource( 2 )
+
+[node name="HUD" type="CanvasLayer"]
+script = ExtResource( 1 )
+
+[node name="tempo1" type="Label" parent="."]
+margin_left = 438.999
+margin_top = 12.3778
+margin_right = 478.999
+margin_bottom = 28.3778
+rect_scale = Vector2( 1.2, 1.32 )
+custom_fonts/font = SubResource( 1 )
+text = "0"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="pontos" type="Label" parent="."]
+margin_left = 528.95
+margin_top = 6.02734
+margin_right = 1169.95
+margin_bottom = 41.0273
+custom_fonts/font = SubResource( 2 )
+text = "000"
+align = 1
+valign = 1
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="combustivel" type="TextureProgress" parent="."]
+margin_left = 1327.27
+margin_top = 18.419
+margin_right = 1865.27
+margin_bottom = 40.419
+value = 80.0
+texture_under = ExtResource( 4 )
+texture_progress = ExtResource( 3 )
+nine_patch_stretch = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="tempot" type="Timer" parent="."]
+autostart = true
+
+[connection signal="timeout" from="tempot" to="." method="_on_tempot_timeout"]

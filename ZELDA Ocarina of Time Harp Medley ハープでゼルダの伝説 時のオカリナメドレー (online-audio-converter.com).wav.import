@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/ZELDA Ocarina of Time Harp Medley ハープでゼルダの伝説 時のオカリナメドレー (online-audio-converter.com).wav-67b658bdf9eeb18acf5751b46c5145d5.sample"
+
+[deps]
+
+source_file="res://ZELDA Ocarina of Time Harp Medley ハープでゼルダの伝説 時のオカリナメドレー (online-audio-converter.com).wav"
+dest_files=[ "res://.import/ZELDA Ocarina of Time Harp Medley ハープでゼルダの伝説 時のオカリナメドレー (online-audio-converter.com).wav-67b658bdf9eeb18acf5751b46c5145d5.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

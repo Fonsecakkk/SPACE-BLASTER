@@ -1,0 +1,82 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://Player.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Alien.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Material rescue/wallpaper.png" type="Texture" id=3]
+[ext_resource path="res://Astronauta.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Combustível.tscn" type="PackedScene" id=5]
+[ext_resource path="res://HUD.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Main.gd" type="Script" id=7]
+[ext_resource path="res://ZELDA Ocarina of Time Harp Medley ハープでゼルダの伝説 時のオカリナメドレー (online-audio-converter.com).wav" type="AudioStream" id=8]
+[ext_resource path="res://Vampiro.tscn" type="PackedScene" id=9]
+
+[node name="Main" type="Node2D"]
+script = ExtResource( 7 )
+
+[node name="Player" parent="." instance=ExtResource( 1 )]
+position = Vector2( 1586.69, 431.126 )
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( -976.779, -291.213 )
+scale = Vector2( 1.44757, 2.27027 )
+z_index = -1
+texture = ExtResource( 3 )
+centered = false
+
+[node name="Alien" parent="." instance=ExtResource( 2 )]
+position = Vector2( 1963.07, 254.179 )
+
+[node name="Astronauta" parent="." instance=ExtResource( 4 )]
+position = Vector2( 2918.27, 285.946 )
+
+[node name="Combustível" parent="." instance=ExtResource( 5 )]
+position = Vector2( 127.132, 241.435 )
+
+[node name="HUD" parent="." instance=ExtResource( 6 )]
+
+[node name="Camera2D" type="Camera2D" parent="."]
+current = true
+
+[node name="geraalien" type="Timer" parent="."]
+wait_time = 3.0
+autostart = true
+
+[node name="geravampiro" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[node name="geraastronauta" type="Timer" parent="."]
+wait_time = 6.0
+autostart = true
+
+[node name="geracombustivel" type="Timer" parent="."]
+wait_time = 4.0
+autostart = true
+
+[node name="fase" type="Timer" parent="."]
+wait_time = 60.0
+autostart = true
+
+[node name="reinicio" type="Timer" parent="."]
+wait_time = 3.0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 8 )
+autoplay = true
+
+[node name="proxfase" type="Timer" parent="."]
+wait_time = 20.0
+autostart = true
+
+[node name="Vampiro" parent="." instance=ExtResource( 9 )]
+position = Vector2( 2743.69, 115.271 )
+
+[connection signal="morreu" from="Player" to="." method="_on_Player_morreu"]
+[connection signal="timeout" from="geraalien" to="." method="_on_geraalien_timeout"]
+[connection signal="timeout" from="geravampiro" to="." method="_on_geravampiro_timeout"]
+[connection signal="timeout" from="geravampiro" to="." method="_on_geraalien_timeout"]
+[connection signal="timeout" from="geraastronauta" to="." method="_on_geraastronauta_timeout"]
+[connection signal="timeout" from="geracombustivel" to="." method="_on_geracombustivel_timeout"]
+[connection signal="timeout" from="fase" to="." method="_on_fase_timeout"]
+[connection signal="timeout" from="reinicio" to="." method="_on_reinicio_timeout"]
+[connection signal="timeout" from="proxfase" to="." method="_on_proxfase_timeout"]
